@@ -16,3 +16,9 @@ jobs:
 
     - name: Mostrar Variable
       run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
+  mostrar-2:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Mostrar Variable
+      run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
+
