@@ -4,15 +4,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  configurar-variable:
+  job1:
     runs-on: ubuntu-latest
-
     outputs:
-      steps-output: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
-
+      output1: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
     steps:
     - name: Checkout código
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
 
     - name: Configurar variable
       id: configurar-variable
@@ -20,13 +18,15 @@ jobs:
       env:
         MI_VARIABLE: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
 
-  mostrar-variable:
-    needs: configurar-variable
+    - name: Mostrar Variable
+      run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
+
+  job2:
+    needs: job1
     runs-on: ubuntu-latest
 
     steps:
     - name: Mostrar Variable
-      run: echo "El valor de MI_VARIABLE es ${{ needs.configurar-variable.outputs.steps-output }}"
-
+      run: echo "El valor de MI_VARIABLE es ${{ needs.job1.outputs.output1 }}"
 
 
