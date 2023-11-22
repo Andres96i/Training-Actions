@@ -13,12 +13,18 @@ jobs:
 
     - name: Configurar variable
       run: echo "MI_VARIABLE=Hola, mundo" >> $GITHUB_ENV
+      env:
+        MI_VARIABLE: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
 
     - name: Mostrar Variable
       run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
-  mostrar-2:
+
+  mostrar-variable-2:
+    needs: mostrar-variable
     runs-on: ubuntu-latest
+
     steps:
     - name: Mostrar Variable
       run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
+
 
