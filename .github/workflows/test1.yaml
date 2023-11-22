@@ -4,27 +4,29 @@ on:
   workflow_dispatch:
 
 jobs:
-  mostrar-variable:
+  configurar-variable:
     runs-on: ubuntu-latest
+
+    outputs:
+      steps-output: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
 
     steps:
     - name: Checkout código
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
 
     - name: Configurar variable
+      id: configurar-variable
       run: echo "MI_VARIABLE=Hola, mundo" >> $GITHUB_ENV
       env:
         MI_VARIABLE: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
 
-    - name: Mostrar Variable
-      run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
-
-  mostrar-variable-2:
-    needs: mostrar-variable
+  mostrar-variable:
+    needs: configurar-variable
     runs-on: ubuntu-latest
 
     steps:
     - name: Mostrar Variable
-      run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
+      run: echo "El valor de MI_VARIABLE es ${{ needs.configurar-variable.outputs.steps-output }}"
+
 
 
