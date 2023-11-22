@@ -14,7 +14,7 @@ jobs:
 
     - name: Configurar variable
       id: configurar-variable
-      run: echo "MI_VARIABLE=Hola, mundo" >> $GITHUB_ENV
+      run: echo "MI_VARIABLE=Hola, mundo" >> $GITHUB_OUTPUT
       env:
         MI_VARIABLE: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
 
