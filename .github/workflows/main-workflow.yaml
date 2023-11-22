@@ -1,5 +1,5 @@
 # Nombre del archivo: main-workflow.yml
-name: Mostrar Variables distintas de un job a otro.
+name: Main Workflow.
 
 on:
   workflow_dispatch:
