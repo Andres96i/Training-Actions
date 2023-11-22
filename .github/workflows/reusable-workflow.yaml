@@ -1,11 +1,11 @@
-name: Mostrar Variables distintas de un job a otro.
+# reusable-workflow.yml
+name: Reusable Workflow
 
 on:
   workflow_dispatch:
 
 jobs:
-
-  job1:
+  configurar-y-mostrar:
     runs-on: ubuntu-latest
     outputs:
       output1: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
@@ -22,13 +22,3 @@ jobs:
 
     - name: Mostrar Variable
       run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
-
-  job2:
-    needs: job1
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Mostrar Variable
-      run: echo "El valor de MI_VARIABLE es ${{ needs.job1.outputs.output1 }}"
-
-
