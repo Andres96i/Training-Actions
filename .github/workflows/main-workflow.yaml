@@ -1,0 +1,17 @@
+# Nombre del archivo: main-workflow.yml
+name: Mostrar Variables distintas de un job a otro.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  job1:
+    uses: ./.github/workflows/reusable-workflow.yml
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Mostrar Variable
+      run: echo "El valor de MI_VARIABLE es ${{ needs.job1.outputs.output1 }}"
