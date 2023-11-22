@@ -6,6 +6,8 @@ on:
 jobs:
   mostrar-variable:
     runs-on: ubuntu-latest
+    env:
+      MI_VARIABLE: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
 
     steps:
     - name: Checkout código
@@ -13,10 +15,10 @@ jobs:
 
     - name: Configurar variable
       run: echo "MI_VARIABLE=Hola, mundo" >> $GITHUB_ENV
-      env:
-        MI_VARIABLE: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
-
+      #env:
     - name: Mostrar Variable
+      #MI_VARIABLE: ${{ steps.configurar-variable.outputs.MI_VARIABLE }}
+
       run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
 
   mostrar-variable-2:
