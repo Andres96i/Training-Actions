@@ -1,7 +1,9 @@
 name: reusable-workflow
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+    - features
 
 jobs:
   configurar-y-mostrar:
@@ -16,8 +18,8 @@ jobs:
     - name: Configurar variable
       id: configurar-variable
       run: |
-        echo "MI_VARIABLE=Hola, mundo" >> $GITHUB_ENV
-        echo "MI_VARIABLE=Hola, mundo2" >> $GITHUB_OUTPUT
+        echo "MI_VARIABLE=Primera Variable" >> $GITHUB_ENV
+        echo "MI_VARIABLE=Segunda Variable" >> $GITHUB_OUTPUT
 
     - name: Mostrar Variable
       run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
