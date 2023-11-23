@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Trigger reusable workflow
-      uses: Andres96i/repository-dispatch@v4
+      uses: Andres96i/Reusable-actions@v4
       with:
         token: ${{ secrets.REPO_PAT }}
         repository: Andres96i/Reusable-actions
