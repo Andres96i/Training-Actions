@@ -18,14 +18,17 @@ jobs:
         repository: Andres96i/Reusable-actions
         event-type: activate-workflow
 
+    - name: Descargar resultados
+      uses: actions/download-artifact@v2
+      with:
+        name: results
+
     - name: Mostrar Variable
       run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
 
   job2:
     needs: job1
     runs-on: ubuntu-latest
-
     steps:
     - name: Mostrar Variable
-      run: echo "El valor de MI_VARIABLE es ${{ needs.job1.outputs.output1 }}"
-
+      run: cat results/output1
