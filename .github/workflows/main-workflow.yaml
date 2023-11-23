@@ -1,4 +1,4 @@
-name: Llamada a otro workflow de otro Repo
+name: Main-workflow
 
 on:
   workflow_dispatch:
