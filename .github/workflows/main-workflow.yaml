@@ -9,7 +9,7 @@ jobs:
     outputs:
       output1: ${{ steps.job1.outputs.output1 }}
     steps:
-    - name: Trigger reusable workflow
+    - name: Activar el reusable workflow
       uses: peter-evans/repository-dispatch@v2
       with:
         token: ${{ secrets.REPO_PAT }}
@@ -22,5 +22,5 @@ jobs:
 
     steps:
     - name: Mostrar Variable
-      run: echo "El valor de MI_VARIABLE es ${{ needs.outputs.output1 }}"
+      run: echo "El valor de MI_VARIABLE es ${{ needs.job1.outputs.output1 }}"
 
