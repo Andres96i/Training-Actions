@@ -1,4 +1,4 @@
-name: Mostrar Variables distintas de un job a otro.
+name: Llamada a otro workflow de otro Repo
 
 on:
   workflow_dispatch:
