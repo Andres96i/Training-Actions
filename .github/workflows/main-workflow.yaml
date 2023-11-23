@@ -11,7 +11,7 @@ jobs:
       uses: peter-evans/repository-dispatch@v2
       with:
         token: ${{ secrets.REPO_PAT }}
-        repository: username/reusable-repo
+        repository: Andres96i/Reusable-actions
         event-type: activate-workflow
 
   job2:
