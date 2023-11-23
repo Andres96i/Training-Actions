@@ -18,15 +18,20 @@ jobs:
         repository: Andres96i/Reusable-actions
         event-type: activate-workflow
 
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Descargar resultados
       uses: actions/download-artifact@v2
       with:
         name: results
-
     - name: Mostrar Variable
       run: echo "El valor de MI_VARIABLE es $MI_VARIABLE"
 
-  job2:
+  job3:
     needs: job1
     runs-on: ubuntu-latest
     steps:
