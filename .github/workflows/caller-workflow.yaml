@@ -1,0 +1,10 @@
+name: Caller Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  call-workflow-using-release:
+    uses: Andres96i/Reusable-actions/.github/workflows/reusable-workflow.yml@main
+
