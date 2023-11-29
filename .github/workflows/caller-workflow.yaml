@@ -7,4 +7,6 @@ jobs:
 
   call-workflow-using-release:
     uses: Andres96i/Reusable-actions/.github/workflows/reusable-workflow.yml@main
-
+    with:
+      input1: 'Input de valor 1'
+      input2: 'Input de valor 2'
