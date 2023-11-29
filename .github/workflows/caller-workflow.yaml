@@ -1,4 +1,4 @@
-name: Test 52 #Related to SO https://stackoverflow.com/questions/73305126/passing-variable-inputs-to-a-resuable-workflow
+name: Caller Workflow
 
 on:
   workflow_dispatch:
