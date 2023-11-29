@@ -1,0 +1,10 @@
+name: Test 52 #Related to SO https://stackoverflow.com/questions/73305126/passing-variable-inputs-to-a-resuable-workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  call-workflow-using-release:
+    uses: Andres96i/Reusable-actions/.github/workflows/reusable-workflow.yml@main
+
